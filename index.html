@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toko Online - Produk</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header {
+      background-color: #ff5722;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 0;
+    }
+
+    .search-bar {
+      margin: 30px 0;
+      text-align: center;
+    }
+
+    .search-bar input {
+      padding: 10px 15px;
+      width: 60%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .product-info h3 {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .price {
+      color: #e64a19;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background-color: #d84315;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .media-section {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    canvas {
+      border: 1px solid #ec098e;
+      margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Toko Online</div>
+    <nav>
+      <a href="web2.html">Beranda</a>
+      <a href="product.html">Produk</a>
+      <a href="contact.html">Kontak</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+  
+      <!-- Promosi Visual -->
+      <div class="media-section">
+        <h2>Promosi Visual</h2>
+        <video width="100%" autoplay muted loop playsinline style="border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <source src="https://www.shutterstock.com/shutterstock/videos/3543857989/preview/stock-footage-on-the-seashore-plastic-bottle-with-orange-juice-and-a-green-lid-stands-in-the-sand-next-to-a.webm" type="video/webm">
+          Browser Anda tidak mendukung pemutar video.
+        </video>
+        <canvas id="promoCanvas" width="800" height="400"></canvas>
+      </div>
+  
+      <!-- Pencarian Produk -->
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Cari produk..." onkeyup="searchProduct()">
+      </div>
+
+      <h2>Produk Terlaris</h2>
+
+      <div class="product-list" id="productList">
+        <div class="product-card" data-name="JUS">
+          <img src="HH.jpg" alt="Jus">
+          <div class="product-info">
+            <h3>JUS</h3>
+            <p class="price">Rp 15.000</p>
+            <a href="detail-product.html?id=1" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="KOPI">
+          <img src="KOPI.jpeg" alt="Kopi">
+          <div class="product-info">
+            <h3>KOPI</h3>
+            <p class="price">Rp 10.000</p>
+            <a href="detail-product.html?id=2" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="MINUMAN BERENERGI">
+          <img src="minuman-energi.jpg" alt="Minuman Energi">
+          <div class="product-info">
+            <h3>MINUMAN BERENERGI</h3>
+            <p class="price">Rp 20.000</p>
+            <a href="detail-product.html?id=3" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="BOBA">
+          <img src="BOBA.jpg" alt="Boba">
+          <div class="product-info">
+            <h3>BOBA</h3>
+            <p class="price">Rp 15.000</p>
+            <a href="detail-product.html?id=4" class="btn">Lihat Detail</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Toko Online. KELOMPOK RICHARD ANRA KHOMSAH.</p>
+  </footer>
+
+  <script>
+    function searchProduct() {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let productCards = document.querySelectorAll('.product-card');
+
+      productCards.forEach(function(card) {
+        let productName = card.getAttribute('data-name').toLowerCase();
+        if (productName.indexOf(input) > -1) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    const canvas = document.getElementById("promoCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const img = new Image();
+    img.src = "https://images.pexels.com/photos/15635933/pexels-photo-15635933/free-photo-of-close-up-of-a-barista-pouring-espresso-into-a-cup.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+
+    let x = 0;
+    let dx = 3; // Kecepatan gambar lebih tinggi agar gerakannya lebih menarik
+
+    img.onload = function () {
+      // Menyesuaikan ukuran gambar agar pas di canvas
+      const imageWidth = 600;  // Menyesuaikan lebar gambar
+      const imageHeight = 300;  // Menyesuaikan tinggi gambar
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Bersihkan canvas
+        ctx.drawImage(img, x, 50, imageWidth, imageHeight); // Gambar gambar di canvas
+        x += dx; // Gerakkan gambar
+
+        // Membalik arah gambar jika mencapai batas kanan atau kiri canvas
+        if (x + imageWidth > canvas.width || x < 0) {
+          dx = -dx;
+        }
+
+        requestAnimationFrame(animate); // Meminta animasi frame berikutnya
+      }
+
+      animate(); // Mulai animasi setelah gambar dimuat
+    };
+  </script>
+
+</body>
+</html>

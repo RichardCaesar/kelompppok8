@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Toko Online</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Header */
+        header {
+            background: #ff5722;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        nav {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: yellow;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #fff3e0;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #333;
+            animation: moveText 10s linear infinite;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            animation: moveText 12s linear infinite 5s;
+        }
+
+        /* Animasi tulisan bergerak */
+        @keyframes moveText {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            50% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        /* Category Section */
+        .categories {
+            padding: 40px 0;
+            background: #ffffff;
+        }
+
+        .categories h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            background: #ffccbc;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: background 0.3s;
+            animation: bounceIn 1s ease-out;
+        }
+
+        .category-item:hover {
+            background: #ffab91;
+        }
+
+        /* Animasi untuk elemen kategori */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Produk Section */
+        .products {
+            background: #fafafa;
+            padding: 50px 0;
+            animation: bounceUpDown 3s ease-in-out infinite;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .product-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .btn {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            background: #ff5722;
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e64a19;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Canvas Section */
+        .canvas-container {
+            background: white;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .product-list {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+
+        /* Animasi naik turun produk */
+        @keyframes bounceUpDown {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">Toko Online</h1>
+            <nav>
+                <a href="product.html">Produk</a>
+                <a href="checkout.html">Checkout</a>
+                <a href="contact.html">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Belanja Mudah & Murah!</h2>
+            <p>Temukan berbagai produk berkualitas dengan harga terbaik hanya di Toko Online.</p>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2>Kategori Populer</h2>
+            <div class="category-list">
+                <div class="category-item">Minuman Sehat</div>
+                <div class="category-item">Minuman Energi</div>
+                <div class="category-item">Minuman Enak</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="container">
+            <h2>Produk Tersedia</h2>
+            <div class="product-list">
+                <div class="product-card">
+                    <a href="detail-product.html?id=1">
+                        <img src="HH.jpg" alt="Macam-macam Jus">
+                        <h3>Macam-macam Jus</h3>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <a href="detail-product.html?id=2">
+                        <img src="KOPI.jpeg" alt="Macam-macam Kopi">
+                        <h3>Macam-macam Kopi</h3>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <a href="detail-product.html?id=3">
+                        <img src="minuman-energi.jpg" alt="Minuman Energi">
+                        <h3>Macam-macam Minuman Energi</h3>
+                    </a>
+                </div>
+                <div class="product-card">
+                    <a href="detail-product.html?id=4">
+                        <img src="BOBA.jpg" alt="Macam-macam Boba">
+                        <h3>Macam-macam Boba</h3>
+                    </a>
+                </div>
+            </div>
+            <a href="product.html" class="btn">Lihat Semua Produk</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Toko Online. KELOMPOK RICHARD ANRA KHOMSAH.</p>
+    </footer>
+
+</body>
+</html>
